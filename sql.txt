@@ -1,0 +1,137 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Jan 13, 2023 at 06:31 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mydb1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `books`
+--
+
+CREATE TABLE `books` (
+  `bookid` int(11) NOT NULL,
+  `bookname` varchar(100) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `price` int(11) NOT NULL,
+  `updatedat` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`bookid`, `bookname`, `author`, `price`, `updatedat`) VALUES
+(1, 'Java For Beginners Edited', 'Spring Author', 2500, '2023-01-06 09:56:44'),
+(2, 'Learn Python in Seven Steps', 'Anzuann A', 3520, '2023-01-06 10:05:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `empid` int(11) NOT NULL,
+  `empname` varchar(200) NOT NULL,
+  `dateofjoin` date DEFAULT NULL,
+  `salary` int(11) NOT NULL,
+  `profilepic` varchar(250) DEFAULT NULL,
+  `job` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`empid`, `empname`, `dateofjoin`, `salary`, `profilepic`, `job`) VALUES
+(2, 'samorai', '2022-06-01', 10000, 'uploads/profile/2021-06-00620undefined-1673069431447.jpeg', 'Developer'),
+(3, 'Hanzo Samurai', '2020-01-02', 15000, NULL, 'Security Officer'),
+(4, 'Hanzo Samurai', '2020-01-02', 15000, NULL, 'Security Officer'),
+(5, 'hahahha', '2020-01-02', 15000, NULL, 'Security Officer'),
+(6, 'John Doe', '2022-01-02', 50000, NULL, 'Footballer'),
+(7, 'Willie Jones', '2021-01-02', 100000, 'uploads/men with glassesundefined-1673070435358.jpeg', 'Singer'),
+(8, 'Salim Juma', '2022-01-01', 10000, 'uploads/2021-06-00620undefined-1673524968973.jpeg', 'Singer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `email` varchar(200) NOT NULL,
+  `pwd` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `createdat` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`email`, `pwd`, `name`, `createdat`) VALUES
+('alanzuann@gmail.com', '$2b$10$RfdA9v0m.qH7mEprJzmBDuiaz6vNzkekLVQLOEsAgOEmP8gHhdZv2', 'Nassor Nassor', '2023-01-09'),
+('aliabdul@gmail.com', '$2b$10$rhOUTgYi2xId7bqJ66A0k.vr.ZHQTBgcVfrkl66IK52/SOYAFxHjC', 'Nassor Anzuann', '2023-01-09');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`bookid`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`empid`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `bookid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `empid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
